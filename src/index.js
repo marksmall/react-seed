@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 import * as serviceWorker from './serviceWorker';
+import installDevTools from './dev-tools/load';
 
 const render = () => {
   const App = require('./app.component').default;
@@ -10,7 +11,9 @@ const render = () => {
   ReactDOM.render(<App />, document.getElementById('root'));
 };
 
-render();
+installDevTools(() => {
+  render();
+});
 
 if (process.env.NODE_ENV === 'development' && module.hot) {
   module.hot.accept('./app.component', render);
