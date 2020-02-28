@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
@@ -8,7 +8,12 @@ import installDevTools from './dev-tools/load';
 const render = () => {
   const App = require('./app.component').default;
 
-  ReactDOM.render(<App />, document.getElementById('root'));
+  ReactDOM.render(
+    <StrictMode>
+      <App />
+    </StrictMode>,
+    document.getElementById('root')
+  );
 };
 
 installDevTools(() => {
